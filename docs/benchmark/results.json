@@ -1,0 +1,853 @@
+{
+  "version": "0.1.0",
+  "python": "3.12.3",
+  "tasks": [
+    "speed",
+    "port",
+    "idempotency"
+  ],
+  "latency": 0.05,
+  "per_token_latency": 0.001,
+  "rows": [
+    {
+      "pattern": "augmented",
+      "title": "Augmented LLM",
+      "mean_llm_calls": 1.67,
+      "mean_tool_calls": 0.67,
+      "mean_tokens": 887.67,
+      "mean_critical_path": 1.67,
+      "mean_seconds": 0.144,
+      "solved": 3,
+      "runs": [
+        {
+          "task": "speed",
+          "status": "answered",
+          "solved": true,
+          "seconds": 0.165,
+          "llm_calls": 2,
+          "tool_calls": 1,
+          "tokens": 1116,
+          "critical_path": 2
+        },
+        {
+          "task": "port",
+          "status": "answered",
+          "solved": true,
+          "seconds": 0.156,
+          "llm_calls": 2,
+          "tool_calls": 1,
+          "tokens": 1063,
+          "critical_path": 2
+        },
+        {
+          "task": "idempotency",
+          "status": "answered",
+          "solved": true,
+          "seconds": 0.112,
+          "llm_calls": 1,
+          "tool_calls": 0,
+          "tokens": 484,
+          "critical_path": 1
+        }
+      ]
+    },
+    {
+      "pattern": "chaining",
+      "title": "Prompt chaining + gates",
+      "mean_llm_calls": 3,
+      "mean_tool_calls": 0,
+      "mean_tokens": 392.33,
+      "mean_critical_path": 3,
+      "mean_seconds": 0.244,
+      "solved": 3,
+      "runs": [
+        {
+          "task": "speed",
+          "status": "completed",
+          "solved": true,
+          "seconds": 0.212,
+          "llm_calls": 3,
+          "tool_calls": 0,
+          "tokens": 354,
+          "critical_path": 3
+        },
+        {
+          "task": "port",
+          "status": "completed",
+          "solved": true,
+          "seconds": 0.211,
+          "llm_calls": 3,
+          "tool_calls": 0,
+          "tokens": 328,
+          "critical_path": 3
+        },
+        {
+          "task": "idempotency",
+          "status": "completed",
+          "solved": true,
+          "seconds": 0.31,
+          "llm_calls": 3,
+          "tool_calls": 0,
+          "tokens": 495,
+          "critical_path": 3
+        }
+      ]
+    },
+    {
+      "pattern": "routing",
+      "title": "Routing",
+      "mean_llm_calls": 2.67,
+      "mean_tool_calls": 0.67,
+      "mean_tokens": 492.67,
+      "mean_critical_path": 2.67,
+      "mean_seconds": 0.205,
+      "solved": 3,
+      "runs": [
+        {
+          "task": "speed",
+          "status": "answered",
+          "solved": true,
+          "seconds": 0.221,
+          "llm_calls": 3,
+          "tool_calls": 1,
+          "tokens": 547,
+          "critical_path": 3
+        },
+        {
+          "task": "port",
+          "status": "answered",
+          "solved": true,
+          "seconds": 0.219,
+          "llm_calls": 3,
+          "tool_calls": 1,
+          "tokens": 626,
+          "critical_path": 3
+        },
+        {
+          "task": "idempotency",
+          "status": "answered",
+          "solved": true,
+          "seconds": 0.175,
+          "llm_calls": 2,
+          "tool_calls": 0,
+          "tokens": 305,
+          "critical_path": 2
+        }
+      ]
+    },
+    {
+      "pattern": "sectioning",
+      "title": "Parallelization: sectioning",
+      "mean_llm_calls": 4,
+      "mean_tool_calls": 0,
+      "mean_tokens": 475,
+      "mean_critical_path": 2,
+      "mean_seconds": 0.155,
+      "solved": 3,
+      "runs": [
+        {
+          "task": "speed",
+          "status": "completed",
+          "solved": true,
+          "seconds": 0.136,
+          "llm_calls": 4,
+          "tool_calls": 0,
+          "tokens": 421,
+          "critical_path": 2
+        },
+        {
+          "task": "port",
+          "status": "completed",
+          "solved": true,
+          "seconds": 0.13,
+          "llm_calls": 4,
+          "tool_calls": 0,
+          "tokens": 385,
+          "critical_path": 2
+        },
+        {
+          "task": "idempotency",
+          "status": "completed",
+          "solved": true,
+          "seconds": 0.199,
+          "llm_calls": 4,
+          "tool_calls": 0,
+          "tokens": 619,
+          "critical_path": 2
+        }
+      ]
+    },
+    {
+      "pattern": "voting",
+      "title": "Parallelization: voting",
+      "mean_llm_calls": 3,
+      "mean_tool_calls": 0,
+      "mean_tokens": 238.67,
+      "mean_critical_path": 1,
+      "mean_seconds": 0.061,
+      "solved": 3,
+      "runs": [
+        {
+          "task": "speed",
+          "status": "majority",
+          "solved": true,
+          "seconds": 0.059,
+          "llm_calls": 3,
+          "tool_calls": 0,
+          "tokens": 257,
+          "critical_path": 1
+        },
+        {
+          "task": "port",
+          "status": "majority",
+          "solved": true,
+          "seconds": 0.06,
+          "llm_calls": 3,
+          "tool_calls": 0,
+          "tokens": 227,
+          "critical_path": 1
+        },
+        {
+          "task": "idempotency",
+          "status": "majority",
+          "solved": true,
+          "seconds": 0.065,
+          "llm_calls": 3,
+          "tool_calls": 0,
+          "tokens": 232,
+          "critical_path": 1
+        }
+      ]
+    },
+    {
+      "pattern": "orchestrator",
+      "title": "Orchestrator-workers",
+      "mean_llm_calls": 5.33,
+      "mean_tool_calls": 1.33,
+      "mean_tokens": 1333.33,
+      "mean_critical_path": 3.67,
+      "mean_seconds": 0.316,
+      "solved": 3,
+      "runs": [
+        {
+          "task": "speed",
+          "status": "completed",
+          "solved": true,
+          "seconds": 0.326,
+          "llm_calls": 6,
+          "tool_calls": 2,
+          "tokens": 1480,
+          "critical_path": 4
+        },
+        {
+          "task": "port",
+          "status": "completed",
+          "solved": true,
+          "seconds": 0.317,
+          "llm_calls": 6,
+          "tool_calls": 2,
+          "tokens": 1577,
+          "critical_path": 4
+        },
+        {
+          "task": "idempotency",
+          "status": "completed",
+          "solved": true,
+          "seconds": 0.306,
+          "llm_calls": 4,
+          "tool_calls": 0,
+          "tokens": 943,
+          "critical_path": 3
+        }
+      ]
+    },
+    {
+      "pattern": "evaluator",
+      "title": "Evaluator-optimizer",
+      "mean_llm_calls": 4,
+      "mean_tool_calls": 0,
+      "mean_tokens": 486,
+      "mean_critical_path": 4,
+      "mean_seconds": 0.271,
+      "solved": 3,
+      "runs": [
+        {
+          "task": "speed",
+          "status": "accepted",
+          "solved": true,
+          "seconds": 0.254,
+          "llm_calls": 4,
+          "tool_calls": 0,
+          "tokens": 486,
+          "critical_path": 4
+        },
+        {
+          "task": "port",
+          "status": "accepted",
+          "solved": true,
+          "seconds": 0.261,
+          "llm_calls": 4,
+          "tool_calls": 0,
+          "tokens": 448,
+          "critical_path": 4
+        },
+        {
+          "task": "idempotency",
+          "status": "accepted",
+          "solved": true,
+          "seconds": 0.298,
+          "llm_calls": 4,
+          "tool_calls": 0,
+          "tokens": 524,
+          "critical_path": 4
+        }
+      ]
+    },
+    {
+      "pattern": "react",
+      "title": "ReAct",
+      "mean_llm_calls": 1.67,
+      "mean_tool_calls": 0.67,
+      "mean_tokens": 515.67,
+      "mean_critical_path": 1.67,
+      "mean_seconds": 0.145,
+      "solved": 3,
+      "runs": [
+        {
+          "task": "speed",
+          "status": "answered",
+          "solved": true,
+          "seconds": 0.159,
+          "llm_calls": 2,
+          "tool_calls": 1,
+          "tokens": 596,
+          "critical_path": 2
+        },
+        {
+          "task": "port",
+          "status": "answered",
+          "solved": true,
+          "seconds": 0.157,
+          "llm_calls": 2,
+          "tool_calls": 1,
+          "tokens": 655,
+          "critical_path": 2
+        },
+        {
+          "task": "idempotency",
+          "status": "answered",
+          "solved": true,
+          "seconds": 0.119,
+          "llm_calls": 1,
+          "tool_calls": 0,
+          "tokens": 296,
+          "critical_path": 1
+        }
+      ]
+    },
+    {
+      "pattern": "plan_execute",
+      "title": "Plan-and-execute",
+      "mean_llm_calls": 3.67,
+      "mean_tool_calls": 0.67,
+      "mean_tokens": 902,
+      "mean_critical_path": 3.67,
+      "mean_seconds": 0.289,
+      "solved": 3,
+      "runs": [
+        {
+          "task": "speed",
+          "status": "answered",
+          "solved": true,
+          "seconds": 0.304,
+          "llm_calls": 4,
+          "tool_calls": 1,
+          "tokens": 984,
+          "critical_path": 4
+        },
+        {
+          "task": "port",
+          "status": "answered",
+          "solved": true,
+          "seconds": 0.292,
+          "llm_calls": 4,
+          "tool_calls": 1,
+          "tokens": 1021,
+          "critical_path": 4
+        },
+        {
+          "task": "idempotency",
+          "status": "answered",
+          "solved": true,
+          "seconds": 0.271,
+          "llm_calls": 3,
+          "tool_calls": 0,
+          "tokens": 701,
+          "critical_path": 3
+        }
+      ]
+    },
+    {
+      "pattern": "rewoo",
+      "title": "ReWOO",
+      "mean_llm_calls": 2,
+      "mean_tool_calls": 0.67,
+      "mean_tokens": 396,
+      "mean_critical_path": 2,
+      "mean_seconds": 0.155,
+      "solved": 3,
+      "runs": [
+        {
+          "task": "speed",
+          "status": "answered",
+          "solved": true,
+          "seconds": 0.146,
+          "llm_calls": 2,
+          "tool_calls": 1,
+          "tokens": 389,
+          "critical_path": 2
+        },
+        {
+          "task": "port",
+          "status": "answered",
+          "solved": true,
+          "seconds": 0.152,
+          "llm_calls": 2,
+          "tool_calls": 1,
+          "tokens": 452,
+          "critical_path": 2
+        },
+        {
+          "task": "idempotency",
+          "status": "answered",
+          "solved": true,
+          "seconds": 0.168,
+          "llm_calls": 2,
+          "tool_calls": 0,
+          "tokens": 347,
+          "critical_path": 2
+        }
+      ]
+    },
+    {
+      "pattern": "reflexion",
+      "title": "Reflexion",
+      "mean_llm_calls": 3.67,
+      "mean_tool_calls": 0.67,
+      "mean_tokens": 948,
+      "mean_critical_path": 3.67,
+      "mean_seconds": 0.289,
+      "solved": 3,
+      "runs": [
+        {
+          "task": "speed",
+          "status": "passed",
+          "solved": true,
+          "seconds": 0.302,
+          "llm_calls": 4,
+          "tool_calls": 1,
+          "tokens": 1050,
+          "critical_path": 4
+        },
+        {
+          "task": "port",
+          "status": "passed",
+          "solved": true,
+          "seconds": 0.3,
+          "llm_calls": 4,
+          "tool_calls": 1,
+          "tokens": 1086,
+          "critical_path": 4
+        },
+        {
+          "task": "idempotency",
+          "status": "passed",
+          "solved": true,
+          "seconds": 0.264,
+          "llm_calls": 3,
+          "tool_calls": 0,
+          "tokens": 708,
+          "critical_path": 3
+        }
+      ]
+    },
+    {
+      "pattern": "tree_search",
+      "title": "Tree search (LATS-lite)",
+      "mean_llm_calls": 7,
+      "mean_tool_calls": 0,
+      "mean_tokens": 941.33,
+      "mean_critical_path": 4,
+      "mean_seconds": 0.32,
+      "solved": 3,
+      "runs": [
+        {
+          "task": "speed",
+          "status": "solved",
+          "solved": true,
+          "seconds": 0.31,
+          "llm_calls": 7,
+          "tool_calls": 0,
+          "tokens": 961,
+          "critical_path": 4
+        },
+        {
+          "task": "port",
+          "status": "solved",
+          "solved": true,
+          "seconds": 0.302,
+          "llm_calls": 7,
+          "tool_calls": 0,
+          "tokens": 894,
+          "critical_path": 4
+        },
+        {
+          "task": "idempotency",
+          "status": "solved",
+          "solved": true,
+          "seconds": 0.348,
+          "llm_calls": 7,
+          "tool_calls": 0,
+          "tokens": 969,
+          "critical_path": 4
+        }
+      ]
+    },
+    {
+      "pattern": "supervisor",
+      "title": "Supervisor",
+      "mean_llm_calls": 5,
+      "mean_tool_calls": 0.67,
+      "mean_tokens": 1047,
+      "mean_critical_path": 5,
+      "mean_seconds": 0.402,
+      "solved": 3,
+      "runs": [
+        {
+          "task": "speed",
+          "status": "finished",
+          "solved": true,
+          "seconds": 0.456,
+          "llm_calls": 6,
+          "tool_calls": 1,
+          "tokens": 1229,
+          "critical_path": 6
+        },
+        {
+          "task": "port",
+          "status": "finished",
+          "solved": true,
+          "seconds": 0.456,
+          "llm_calls": 6,
+          "tool_calls": 1,
+          "tokens": 1293,
+          "critical_path": 6
+        },
+        {
+          "task": "idempotency",
+          "status": "finished",
+          "solved": true,
+          "seconds": 0.293,
+          "llm_calls": 3,
+          "tool_calls": 0,
+          "tokens": 619,
+          "critical_path": 3
+        }
+      ]
+    },
+    {
+      "pattern": "hierarchical",
+      "title": "Hierarchical teams",
+      "mean_llm_calls": 6.33,
+      "mean_tool_calls": 0.67,
+      "mean_tokens": 1275.33,
+      "mean_critical_path": 6.33,
+      "mean_seconds": 0.492,
+      "solved": 3,
+      "runs": [
+        {
+          "task": "speed",
+          "status": "finished",
+          "solved": true,
+          "seconds": 0.593,
+          "llm_calls": 8,
+          "tool_calls": 1,
+          "tokens": 1595,
+          "critical_path": 8
+        },
+        {
+          "task": "port",
+          "status": "finished",
+          "solved": true,
+          "seconds": 0.593,
+          "llm_calls": 8,
+          "tool_calls": 1,
+          "tokens": 1640,
+          "critical_path": 8
+        },
+        {
+          "task": "idempotency",
+          "status": "finished",
+          "solved": true,
+          "seconds": 0.29,
+          "llm_calls": 3,
+          "tool_calls": 0,
+          "tokens": 591,
+          "critical_path": 3
+        }
+      ]
+    },
+    {
+      "pattern": "swarm",
+      "title": "Swarm / handoffs",
+      "mean_llm_calls": 2.67,
+      "mean_tool_calls": 0.67,
+      "mean_tokens": 667.67,
+      "mean_critical_path": 2.67,
+      "mean_seconds": 0.219,
+      "solved": 3,
+      "runs": [
+        {
+          "task": "speed",
+          "status": "answered",
+          "solved": true,
+          "seconds": 0.247,
+          "llm_calls": 3,
+          "tool_calls": 1,
+          "tokens": 742,
+          "critical_path": 3
+        },
+        {
+          "task": "port",
+          "status": "answered",
+          "solved": true,
+          "seconds": 0.227,
+          "llm_calls": 3,
+          "tool_calls": 1,
+          "tokens": 830,
+          "critical_path": 3
+        },
+        {
+          "task": "idempotency",
+          "status": "answered",
+          "solved": true,
+          "seconds": 0.184,
+          "llm_calls": 2,
+          "tool_calls": 0,
+          "tokens": 431,
+          "critical_path": 2
+        }
+      ]
+    },
+    {
+      "pattern": "debate",
+      "title": "Debate + judge",
+      "mean_llm_calls": 7,
+      "mean_tool_calls": 0,
+      "mean_tokens": 1071,
+      "mean_critical_path": 3,
+      "mean_seconds": 0.236,
+      "solved": 3,
+      "runs": [
+        {
+          "task": "speed",
+          "status": "judged",
+          "solved": true,
+          "seconds": 0.219,
+          "llm_calls": 7,
+          "tool_calls": 0,
+          "tokens": 1101,
+          "critical_path": 3
+        },
+        {
+          "task": "port",
+          "status": "judged",
+          "solved": true,
+          "seconds": 0.222,
+          "llm_calls": 7,
+          "tool_calls": 0,
+          "tokens": 1030,
+          "critical_path": 3
+        },
+        {
+          "task": "idempotency",
+          "status": "judged",
+          "solved": true,
+          "seconds": 0.266,
+          "llm_calls": 7,
+          "tool_calls": 0,
+          "tokens": 1082,
+          "critical_path": 3
+        }
+      ]
+    },
+    {
+      "pattern": "human_in_the_loop",
+      "title": "Human-in-the-loop",
+      "mean_llm_calls": 2.67,
+      "mean_tool_calls": 1.67,
+      "mean_tokens": 924.67,
+      "mean_critical_path": 2.67,
+      "mean_seconds": 0.239,
+      "solved": 3,
+      "runs": [
+        {
+          "task": "speed",
+          "status": "answered",
+          "solved": true,
+          "seconds": 0.242,
+          "llm_calls": 3,
+          "tool_calls": 2,
+          "tokens": 974,
+          "critical_path": 3
+        },
+        {
+          "task": "port",
+          "status": "answered",
+          "solved": true,
+          "seconds": 0.24,
+          "llm_calls": 3,
+          "tool_calls": 2,
+          "tokens": 1106,
+          "critical_path": 3
+        },
+        {
+          "task": "idempotency",
+          "status": "answered",
+          "solved": true,
+          "seconds": 0.234,
+          "llm_calls": 2,
+          "tool_calls": 1,
+          "tokens": 694,
+          "critical_path": 2
+        }
+      ]
+    },
+    {
+      "pattern": "memory",
+      "title": "Short + long-term memory",
+      "mean_llm_calls": 2,
+      "mean_tool_calls": 0,
+      "mean_tokens": 202.67,
+      "mean_critical_path": 2,
+      "mean_seconds": 0.134,
+      "solved": 3,
+      "runs": [
+        {
+          "task": "speed",
+          "status": "answered",
+          "solved": true,
+          "seconds": 0.119,
+          "llm_calls": 2,
+          "tool_calls": 0,
+          "tokens": 204,
+          "critical_path": 2
+        },
+        {
+          "task": "port",
+          "status": "answered",
+          "solved": true,
+          "seconds": 0.122,
+          "llm_calls": 2,
+          "tool_calls": 0,
+          "tokens": 186,
+          "critical_path": 2
+        },
+        {
+          "task": "idempotency",
+          "status": "answered",
+          "solved": true,
+          "seconds": 0.161,
+          "llm_calls": 2,
+          "tool_calls": 0,
+          "tokens": 218,
+          "critical_path": 2
+        }
+      ]
+    },
+    {
+      "pattern": "agentic_rag",
+      "title": "Agentic RAG",
+      "mean_llm_calls": 2.33,
+      "mean_tool_calls": 0,
+      "mean_tokens": 338.67,
+      "mean_critical_path": 2.33,
+      "mean_seconds": 0.174,
+      "solved": 3,
+      "runs": [
+        {
+          "task": "speed",
+          "status": "answered",
+          "solved": true,
+          "seconds": 0.142,
+          "llm_calls": 2,
+          "tool_calls": 0,
+          "tokens": 239,
+          "critical_path": 2
+        },
+        {
+          "task": "port",
+          "status": "answered",
+          "solved": true,
+          "seconds": 0.214,
+          "llm_calls": 3,
+          "tool_calls": 0,
+          "tokens": 524,
+          "critical_path": 3
+        },
+        {
+          "task": "idempotency",
+          "status": "answered",
+          "solved": true,
+          "seconds": 0.166,
+          "llm_calls": 2,
+          "tool_calls": 0,
+          "tokens": 253,
+          "critical_path": 2
+        }
+      ]
+    },
+    {
+      "pattern": "autonomous",
+      "title": "Autonomous loop + budgets",
+      "mean_llm_calls": 3.67,
+      "mean_tool_calls": 0.67,
+      "mean_tokens": 1146.67,
+      "mean_critical_path": 3.67,
+      "mean_seconds": 0.272,
+      "solved": 3,
+      "runs": [
+        {
+          "task": "speed",
+          "status": "goal_met",
+          "solved": true,
+          "seconds": 0.273,
+          "llm_calls": 4,
+          "tool_calls": 1,
+          "tokens": 1199,
+          "critical_path": 4
+        },
+        {
+          "task": "port",
+          "status": "goal_met",
+          "solved": true,
+          "seconds": 0.272,
+          "llm_calls": 4,
+          "tool_calls": 1,
+          "tokens": 1327,
+          "critical_path": 4
+        },
+        {
+          "task": "idempotency",
+          "status": "goal_met",
+          "solved": true,
+          "seconds": 0.27,
+          "llm_calls": 3,
+          "tool_calls": 0,
+          "tokens": 914,
+          "critical_path": 3
+        }
+      ]
+    }
+  ]
+}
